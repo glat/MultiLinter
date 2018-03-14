@@ -10,29 +10,37 @@ It was born because the linting integrated in VS2017 is now old. It features old
 #### How to configure it?
 MultiLinter has few options in VS2017. It allows you only to enable a verbose debug to find some configuration error or to enable/disable multiple linting. Yes! You can lint same file with several linters, if you want.
 
-First step is to configure it by editing the default config file which placed in "%USERPROFILE%\.multilinterrc.json" path. This is a Json file which overrides the internal configuration you can find in repository file.
+First step is to configure it by editing the default config file which placed (usually) in "%USERPROFILE%\\.multilinterrc.json" path. This is a Json file which overrides the internal configuration you can find in repository file.
 
 Usually you need to override at least three properties for integrated linters, by this way:
 
 `{ "eslint": { enable: true, additionalArguments: "", fileExtensions: "js" }`
 
-It enables the eslint linter with no additional arguments other than the required one and enables it to be used on .js files.
+It enables the eslint linter with no additional arguments other than the required ones and enables it to be used on .js files.
 
-MultiLinter allows only to interface VS2017 to Node.js linters. It does not install Node.js or linters. **You must set up the environment by properly installing Node.js and your favorite linters in global or local mode in your project. Then, you must create a config file to enable linters them on needed file extensions**.
+MultiLinter allows only to interface VS2017 to Node.js linters. It does not install Node.js or linters.
+
+**You must set up the environment by properly installing Node.js and your favorite linters in global or local mode in your project. Then, you must create a config file to enable linters them on needed file extensions**.
+
+**You should also disable internal VS2017 linting**.
+
+#### Can I use only the integrated linters?
+The answer is no. If you add new linters in your Json configuration file you can use other ones. See advanced section for this.
 
 #### Multiple linting?
-So I can use only the integrated linters? The answer is no. If you add new linters in your configuration you can use other ones. See advanced section for this.
-
-If you enables multiple linting in VS2017 options and associates two or more linters for a single file extension MultiLinter will lint that files with every linter and will show you all results in errors windows of VS2017. This is disabled by default.
+If you enables multiple linting in VS2017 options and associates two or more linters to a single file extension MultiLinter will lint that files with every linter and will show you all results in errors windows of VS2017. This is disabled by default.
 
 #### Configuration file
-Configuration file is found in same ways Node.js. Searching starts from the current file to be lint directory up to the disk root.
+Configuration file is found in same ways Node.js linters do. Search starts from the current file to be lint directory up to the disk root.
+
 The configuration file must be named ".multilinterrc.json" or ".multilinterrc", same way as several linters.
 
-#### Advanced
-You can modify behaviour of MultiLinter, disable integrated linters or add new ones by changing its configuration.
+Usually it is placed in user profile directory.
 
-Json config file is a list of linter which overrides the default config (see config.json in repository).
+#### Advanced
+You can modify behaviour of MultiLinter, enable or disable integrated linters or add new ones by changing its configuration.
+
+Json config file is a list of linters which overrides the default config (see config.json in repository).
 
 Each linter has these options:
 - enabled (boolean): enables or disables these linter.
