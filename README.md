@@ -14,7 +14,9 @@ First step is to configure it by editing the default config file which placed (u
 
 Usually you need to override at least three properties for integrated linters, by this way:
 
-`{ "eslint": { enable: true, additionalArguments: "", fileExtensions: "js" }`
+`
+{ "eslint": { enable: true, additionalArguments: "", fileExtensions: "js" }
+`
 
 It enables the eslint linter with no additional arguments other than the required ones and enables it to be used on .js files.
 
@@ -40,12 +42,14 @@ Usually it is placed in user profile directory.
 #### Global or local usage
 You can use npm global installed linters or local installed linters. If you enable "Real Time" linting MultiLinter will creates a shadow file named [fileName].multilinter.[fileExtension] in same directory of the original file. It will delete as soon as linting is done. This file can appear for a moment in Visual Studio Explorer. To avoid these files to be shown in Visual Studio Explorer add these lines to your project file (.csproj):
 
+```xml
 <ItemGroup>
   <None Remove="**\*.multilinter.*" Visible="false" />
   <Content Remove="**\*.multilinter.*" Visible="false" />
   <Compile Remove="**\*.multilinter.*" Visible="false" />
   <EmbeddedResource Remove="**\*.multilinter.*" Visible="false" />
 </ItemGroup>
+```
 
 #### Advanced
 You can modify behaviour of MultiLinter, enable or disable integrated linters or add new ones by changing its configuration.
