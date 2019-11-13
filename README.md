@@ -37,6 +37,16 @@ The configuration file must be named ".multilinterrc.json" or ".multilinterrc", 
 
 Usually it is placed in user profile directory.
 
+#### Global or local usage
+You can use npm global installed linters or local installed linters. If you enable "Real Time" linting MultiLinter will creates a shadow file named [fileName].multilinter.[fileExtension] in same directory of the original file. It will delete as soon as linting is done. This file can appear for a moment in Visual Studio Explorer. To avoid these files to be shown in Visual Studio Explorer add these lines to your project file (.csproj):
+
+<ItemGroup>
+  <None Remove="**\*.multilinter.*" Visible="false" />
+  <Content Remove="**\*.multilinter.*" Visible="false" />
+  <Compile Remove="**\*.multilinter.*" Visible="false" />
+  <EmbeddedResource Remove="**\*.multilinter.*" Visible="false" />
+</ItemGroup>
+
 #### Advanced
 You can modify behaviour of MultiLinter, enable or disable integrated linters or add new ones by changing its configuration.
 
