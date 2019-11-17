@@ -62,7 +62,7 @@ The configuration file must be named ".multilinterrc.json" or ".multilinterrc", 
 Usually You can place it in %USERPROFILE%, which is last resort to find it.
 
 #### Notes on local usage
-You can use npm global installed linters or local installed linters. If you enable "Real Time" linting in VisualStudio preferences page, MultiLinter will creates a shadow file named [fileName].multilinter.[fileExtension] in same directory of the original file. It will be deleted as soon as linting is done. This file can appear for a moment in Visual Studio Explorer. To avoid these files to be shown in Visual Studio Explorer add these lines to your project file (.csproj):
+You can use npm global installed linters or local installed linters. If you are using local linters and "Real Time" linting is enabled in VisualStudio preferences page, MultiLinter will creates a shadow file named [fileName].multilinter.[fileExtension] in same directory of the original file every time it needs to lint the document you're editing. The shadow file will be deleted as soon as linting is done. The shadow file can appear for a moment in Visual Studio Explorer. To avoid these files to be shown in Visual Studio Explorer add these lines to your project file (.csproj):
 
 ```xml
 <ItemGroup>
