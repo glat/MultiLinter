@@ -9,7 +9,7 @@ It was born because the linting integrated in VS2019 is now old. It features old
 
 #### Some clarifications
 
-Some GitHub users tryied to stop MultiLinter development placing bad reviews on the VS MarketPlace and bothering me on this repo with questions I do not want to answer, so, to be clear here are some clarifications about that questions:
+Some GitHub users tryied to stop MultiLinter development placing bad reviews on the VS MarketPlace and bothering me on this repo with questions I do not want to answer to, so, to be clear here are some clarifications about that questions:
 
 1. MultiLinter is **closed source**.
 2. MultiLinter is not related in any way with VisualLinter except because VisualLinter author refused a PR I sent to him and this moved me to write ground up a new linter extension.
@@ -21,7 +21,7 @@ To be clear here are some rules to create an issue on this repo:
 
 1. You can create issues to send bug reports. Such issues will be answered.
 2. You cannot create issues to place any other questions. Such issues will not be answered but closed/deleted without any further warnings or replies.
-3. If you continue on behaviour breaking these rules you will be reported to GitHub, MultiLinter repo can be deleted, extension on VS MarketPlace will be deleted, all to protect my reputation.
+3. If you continue on behaviour breaking these rules you will be reported to GitHub, MultiLinter repo can be deleted, extension on VS MarketPlace can be deleted, all to protect my reputation against bad users and bad reviews.
 
 **If you are not comfortable with the above clarifications and warnings feel free to move on and do not bother me. Search for another extension, write your own, but that's it. No other questions will be answered.**
 
