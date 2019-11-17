@@ -29,10 +29,10 @@ To be clear here are some rules to create an issue on this repo:
 MultiLinter has few options in VS2019. You'll find a MultiLinter page in the VisualStudio preferences. It allows you to:
 
 1. Enable a verbose debug window to find some configuration error
-2. Switch linting time. You can lint the file at save or in real time.
+2. Switch linting time. You can lint the file at save time or in real time.
 3. Enable multiple linting. Yes! You can lint same file with several linters, if you want.
 
-First step is to configure it by editing the default config file which placed (usually) in "%USERPROFILE%\\.multilinterrc.json" path. This is a Json file which overrides the internal configuration you can find in repository file.
+First step is to configure it by editing the default config file which is placed (usually) in "%USERPROFILE%\\.multilinterrc.json" path. This is a Json file which overrides the internal configuration you can find in repository.
 
 Usually you need to override at least three properties for preconfigured linters, by this way:
 
@@ -40,26 +40,26 @@ Usually you need to override at least three properties for preconfigured linters
 { "eslint": { enable: true, additionalArguments: "", fileExtensions: "js" }
 `
 
-It enables the eslint linter with no additional arguments other than the required ones and enables it to be used on .js files.
+It enables the eslint linter with no additional arguments other than the required ones and enables it to be used on .js files. Inherited internal config will provide all other settings to make eslint work.
 
 MultiLinter allows only to interface VS2019 to Node.js linters. It does not install Node.js or linters.
 
 **You must set up the environment by properly installing Node.js and your favorite linters in global or local mode in your project. Then, you must create a MultiLinter config file to enable linters on needed file extensions**.
-
+**If you are using linters in global mode be sure that $PATH% env var contains the right path to access global npm folder**
 **You should also disable internal VS2019 linting**.
 
 #### Can I use only the integrated linters?
-The answer is no. If you add new linters in your json configuration file you can use other ones. See advanced section for this.
+The answer is **no**. If you add new linters in your json configuration file you can use other ones. This requires to understand each json property and a bit of troubleshooting. See advanced section for this.
 
-#### Multiple linting?
-If you enables multiple linting in VS2019 options and associates two or more linters to a single file extension MultiLinter will lint that files with every linter and will show you all results in errors windows of VS2019. This is disabled by default. Enable it in MultiLinter page of VisualStudio preferences.
+#### What is multiple linting?
+If you enables multiple linting in VisualStudio preferences page and associates two or more linters to a single file extension MultiLinter will lint that files with every linter and will show you all results in errors windows of VS2019. This is disabled by default. Enable it in MultiLinter page of VisualStudio preferences.
 
-#### Configuration file
-Configuration file is found in same ways Node.js linters do. Search starts from the current file to be lint directory up to the disk root.
+#### Where to place MultiLinter configuration file?
+Configuration file is found in same ways Node.js linters do. Search starts from the directory where is placed the file to be lint and then up to parent till the disk root. Last resort to find it is in %USERPROFILE%.
 
 The configuration file must be named ".multilinterrc.json" or ".multilinterrc", same way as several linters.
 
-Usually it is placed in user profile directory, which is last resort to find it.
+Usually You can place it in %USERPROFILE%, which is last resort to find it.
 
 #### Notes on local usage
 You can use npm global installed linters or local installed linters. If you enable "Real Time" linting in VisualStudio preferences page, MultiLinter will creates a shadow file named [fileName].multilinter.[fileExtension] in same directory of the original file. It will be deleted as soon as linting is done. This file can appear for a moment in Visual Studio Explorer. To avoid these files to be shown in Visual Studio Explorer add these lines to your project file (.csproj):
