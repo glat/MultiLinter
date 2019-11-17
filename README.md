@@ -48,7 +48,7 @@ MultiLinter allows only to interface VS2019 to Node.js linters. It does not inst
 **If you are using linters in global mode be sure that $PATH% env var contains the right path to access global npm folder**
 **You should also disable internal VS2019 linting**.
 
-#### Can I use only the integrated linters?
+#### Can I use only the preconfigured linters?
 The answer is **no**. If you add new linters in your json configuration file you can use other ones. This requires to understand each json property and a bit of troubleshooting. See advanced section for this.
 
 #### What is multiple linting?
@@ -74,7 +74,7 @@ You can use npm global installed linters or local installed linters. If you are 
 ```
 
 #### Advanced
-You can modify behaviour of MultiLinter, enable or disable integrated linters or add new ones by changing its json configuration.
+You can modify behaviour of MultiLinter, enable or disable preconfigured linters or add new ones by changing its json configuration.
 
 Json config file is a list of linters which overrides the default config (see config.json in repository for the base one).
 
