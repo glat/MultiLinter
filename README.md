@@ -7,12 +7,34 @@ MultiLinter allows you to use in VS2019 several standard linters available by No
 #### Why Multilinter?
 It was born because the linting integrated in VS2019 is now old. It features old version of linters and no way to change them.
 
+#### Some clarifications
+
+Some GitHub users tryied to stop MultiLinter development placing bad reviews on the VS MarketPlace and bothering me on this repo with questions I do not want to answer, so, to be clear here are some clarifications about that questions:
+
+1. MultiLinter is **closed source**.
+2. MultiLinter is not related in any way with VisualLinter except because VisualLinter author refused a PR I sent to him and this moved me to write ground up a new linter extension.
+3. MultiLinter is **not** a fork of VisualLinter.
+
+#### Some warnings
+
+To be clear here are some rules to create an issue on this repo:
+
+1. You can create issues to send bug reports. Such issues will be answered.
+2. You cannot create issues to place any other questions. Such issues will not be answered but closed/deleted without any further warnings or replies.
+3. If you continue on behaviour breaking these rules you will be reported to GitHub, MultiLinter repo can be deleted, extension on VS MarketPlace will be deleted, all to protect my reputation.
+
+**If you are not comfortable with the above clarifications and warnings feel free to move on and do not bother me. Search for another extension, write your own, but that's it. No other questions will be answered.**
+
 #### How to configure it?
-MultiLinter has few options in VS2019. It allows you only to enable a verbose debug to find some configuration error or to enable/disable multiple linting. Yes! You can lint same file with several linters, if you want.
+MultiLinter has few options in VS2019. You'll find a MultiLinter page in the VisualStudio preferences. It allows you to:
+
+1. Enable a verbose debug window to find some configuration error
+2. Switch linting time. You can lint the file at save or in real time.
+3. Enable multiple linting. Yes! You can lint same file with several linters, if you want.
 
 First step is to configure it by editing the default config file which placed (usually) in "%USERPROFILE%\\.multilinterrc.json" path. This is a Json file which overrides the internal configuration you can find in repository file.
 
-Usually you need to override at least three properties for integrated linters, by this way:
+Usually you need to override at least three properties for preconfigured linters, by this way:
 
 `
 { "eslint": { enable: true, additionalArguments: "", fileExtensions: "js" }
@@ -22,25 +44,25 @@ It enables the eslint linter with no additional arguments other than the require
 
 MultiLinter allows only to interface VS2019 to Node.js linters. It does not install Node.js or linters.
 
-**You must set up the environment by properly installing Node.js and your favorite linters in global or local mode in your project. Then, you must create a config file to enable linters them on needed file extensions**.
+**You must set up the environment by properly installing Node.js and your favorite linters in global or local mode in your project. Then, you must create a MultiLinter config file to enable linters on needed file extensions**.
 
 **You should also disable internal VS2019 linting**.
 
 #### Can I use only the integrated linters?
-The answer is no. If you add new linters in your Json configuration file you can use other ones. See advanced section for this.
+The answer is no. If you add new linters in your json configuration file you can use other ones. See advanced section for this.
 
 #### Multiple linting?
-If you enables multiple linting in VS2019 options and associates two or more linters to a single file extension MultiLinter will lint that files with every linter and will show you all results in errors windows of VS2019. This is disabled by default.
+If you enables multiple linting in VS2019 options and associates two or more linters to a single file extension MultiLinter will lint that files with every linter and will show you all results in errors windows of VS2019. This is disabled by default. Enable it in MultiLinter page of VisualStudio preferences.
 
 #### Configuration file
 Configuration file is found in same ways Node.js linters do. Search starts from the current file to be lint directory up to the disk root.
 
 The configuration file must be named ".multilinterrc.json" or ".multilinterrc", same way as several linters.
 
-Usually it is placed in user profile directory.
+Usually it is placed in user profile directory, which is last resort to find it.
 
-#### Global or local usage
-You can use npm global installed linters or local installed linters. If you enable "Real Time" linting MultiLinter will creates a shadow file named [fileName].multilinter.[fileExtension] in same directory of the original file. It will delete as soon as linting is done. This file can appear for a moment in Visual Studio Explorer. To avoid these files to be shown in Visual Studio Explorer add these lines to your project file (.csproj):
+#### Notes on local usage
+You can use npm global installed linters or local installed linters. If you enable "Real Time" linting in VisualStudio preferences page, MultiLinter will creates a shadow file named [fileName].multilinter.[fileExtension] in same directory of the original file. It will be deleted as soon as linting is done. This file can appear for a moment in Visual Studio Explorer. To avoid these files to be shown in Visual Studio Explorer add these lines to your project file (.csproj):
 
 ```xml
 <ItemGroup>
@@ -52,10 +74,8 @@ You can use npm global installed linters or local installed linters. If you enab
 ```
 
 #### Advanced
-You can modify behaviour of MultiLinter, enable or disable integrated linters or add new ones by changing its configuration.
+You can modify behaviour of MultiLinter, enable or disable integrated linters or add new ones by changing its json configuration.
 
-Json config file is a list of linters which overrides the default config (see config.json in repository).
+Json config file is a list of linters which overrides the default config (see config.json in repository for the base one).
 
-Each linter has these options:
-- enabled (boolean): enables or disables these linter.
-- additionalArguments (string): additional argument you can use to add other options to the linter (pay attention to quote any arguments
+Each property in json allows you to call the linter executable in a way it will return json result and extract warnings and errors from that json file by using right selectors.
