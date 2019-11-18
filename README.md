@@ -28,6 +28,11 @@ To be clear here are some rules to create an issue on this repo:
 #### Notice for old time MultiLinter users
 If you installed MultiLinter before November 16th, 2019 you'll get no further updates. To regain updates please uninstall and reinstall the extension.
 
+#### Changelog
+
+v1.0.35: Implemented stdin usage for linter who support it (eslint and stylelint). Other linters in Real Time mode will continue to use a shadow copy of buffer on disk.
+v1.0.34: New born of MultiLinter after attemped shutdown
+
 #### How to configure it?
 MultiLinter has few options in VS2019. You'll find a MultiLinter page in the VisualStudio preferences. It allows you to:
 
