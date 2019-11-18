@@ -70,7 +70,7 @@ The configuration file must be named ".multilinterrc.json" or ".multilinterrc", 
 
 Usually You can place it in %USERPROFILE%, which is last resort to find it.
 
-#### Notes on local usage
+#### Notes on real time linting enabled
 You can use npm global installed linters or local installed linters. If you are using a local installed linter and "Real Time" linting is enabled in VisualStudio preferences page, MultiLinter will use stdin to send data to the linter if it supports stdin input. In case linter does not support stdin usage MultiLinter will create a shadow file named [fileName].multilinter.[fileExtension] in same directory of the original file every time it needs to lint the document you're editing. The shadow file will be deleted as soon as linting is done. The shadow file can appear for a moment in Visual Studio Explorer. To avoid these files to be shown in Visual Studio Explorer add these lines to your project file (.csproj):
 
 ```xml
@@ -82,7 +82,7 @@ You can use npm global installed linters or local installed linters. If you are 
 </ItemGroup>
 ```
 
-Linters who supports stdin input are: **eslint** and **stylelint**.
+Linters who support stdin input are: **eslint** and **stylelint**. So, if you are using **only** eslint and stylelint you do **not** need to insert the above lines in your .csproj file. If you're using even one of the other integrated linter (jslint,jshint,csslint,sass-lint) you need to.
 
 #### Advanced
 You can modify behaviour of MultiLinter, enable or disable preconfigured linters or add new ones by changing its json configuration.
