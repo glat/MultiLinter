@@ -19,20 +19,23 @@ Some GitHub users tryied to stop MultiLinter development placing bad reviews on 
 
 To be clear here are some rules to create an issue on this repo:
 
-1. You can create issues to send bug reports. Such issues will be answered.
+1. You can create issues to send bug reports, improvement ideas and suggestions. Such issues will be answered.
 2. You cannot create issues to place any other questions. Such issues will not be answered but closed/deleted without any further warnings or replies.
 3. If you continue on behaviour breaking these rules you will be reported to GitHub, MultiLinter repo can be deleted, extension on VS MarketPlace can be deleted, all to protect my reputation against bad users and bad reviews.
 
 **If you are not comfortable with the above clarifications and warnings feel free to move on and do not bother me. Search for another extension, write your own, but that's it. No other questions will be answered.**
 
+#### Notice for old time MultiLinter users
+If you installed MultiLinter before November 16th, 2019 you'll get no further updates. To regain updates please uninstall and reinstall the extension.
+
 #### How to configure it?
 MultiLinter has few options in VS2019. You'll find a MultiLinter page in the VisualStudio preferences. It allows you to:
 
-1. Enable a verbose debug window to find some configuration error
-2. Switch linting time. You can lint the file at save time or in real time.
+1. Enable a verbose debug window to find some configuration error.
+2. Switch linting time. You can lint the file at save time or in real time (with favourite delay).
 3. Enable multiple linting. Yes! You can lint same file with several linters, if you want.
 
-First step is to configure it by editing the default config file which is placed (usually) in "%USERPROFILE%\\.multilinterrc.json" path. This is a Json file which overrides the internal configuration you can find in repository.
+First step is to configure it by editing the default config file which is placed (usually) in "%USERPROFILE%\\.multilinterrc.json" path. This is a Json file which overrides the internal configuration you can find here in repository. That file is in this repo to allow you to read and inherit.
 
 Usually you need to override at least three properties for preconfigured linters, by this way:
 
