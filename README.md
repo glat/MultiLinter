@@ -9,7 +9,7 @@ It was born because the linting integrated in VS2019 is now old. It features old
 
 #### Some clarifications
 
-Some GitHub users tryied to stop MultiLinter development placing bad reviews on the VS MarketPlace and bothering me on this repo with questions I do not want to answer to, so, to be clear here are some clarifications about that questions:
+Some GitHub users tryied to stop MultiLinter development placing bad reviews on the VS MarketPlace and bothering me on this repo with questions I do not want to answer to, so, to be clear here are some clarifications about those questions:
 
 1. MultiLinter is **closed source**.
 2. MultiLinter is not related in any way with VisualLinter except because VisualLinter author refused a PR I sent to him and this moved me to write ground up a new linter extension.
@@ -39,9 +39,15 @@ First step is to configure it by editing the default config file which is placed
 
 Usually you need to override at least three properties for preconfigured linters, by this way:
 
-`
-{ "eslint": { enable: true, additionalArguments: "", fileExtensions: "js" }
-`
+```json
+{
+  "eslint": {
+    "enable": true,
+    "additionalArguments": "",
+    "fileExtensions": "js"
+  }
+}
+```
 
 It enables the eslint linter with no additional arguments other than the required ones and enables it to be used on .js files. Inherited internal config will provide all other settings to make eslint work.
 
