@@ -30,6 +30,8 @@ If you installed MultiLinter before November 16th, 2019 you'll get no further up
 
 #### Changelog
 
+**v1.0.40**: Tested extension updating on VS MarketPlace.
+
 **v1.0.35**: Implemented stdin usage for linters who support it (eslint and stylelint). Other linters in Real Time mode will continue to use a shadow copy of buffer on disk.
 
 **v1.0.34**: New born of MultiLinter after attemped shutdown.
