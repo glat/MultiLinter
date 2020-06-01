@@ -53,7 +53,7 @@ Usually you need to override at least three properties for preconfigured linters
 ```json
 {
   "eslint": {
-    "enable": true,
+    "enabled": true,
     "additionalArguments": "",
     "fileExtensions": "js"
   }
