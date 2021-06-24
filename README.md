@@ -30,6 +30,8 @@ If you installed MultiLinter before November 16th, 2019 you'll get no further up
 
 #### Changelog
 
+**v1.0.44**: Workaround to avoid bug (see https://github.com/stylelint/stylelint/issues/5122).
+
 **v1.0.42**: Implemented formatters. Preconfigured are Prettier and Beautify. Can be present some bugs.
 
 **v1.0.40**: Tested extension updating on VS MarketPlace.
